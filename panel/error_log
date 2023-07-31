@@ -1,0 +1,6 @@
+[30-Jul-2023 14:38:02 Asia/Jakarta] PHP Warning:  Undefined array key "pengguna" in /home/kecamata4/public_html/panel/header.php on line 26
+[30-Jul-2023 14:38:02 Asia/Jakarta] PHP Warning:  Trying to access array offset on value of type null in /home/kecamata4/public_html/panel/header.php on line 26
+[30-Jul-2023 14:38:02 Asia/Jakarta] PHP Warning:  Undefined array key "pengguna" in /home/kecamata4/public_html/panel/header.php on line 27
+[30-Jul-2023 14:38:02 Asia/Jakarta] PHP Warning:  Trying to access array offset on value of type null in /home/kecamata4/public_html/panel/header.php on line 27
+[30-Jul-2023 14:41:58 Asia/Jakarta] PHP Warning:  Undefined array key "statusperkawinan" in /home/kecamata4/public_html/panel/penduduktambah.php on line 150
+[30-Jul-2023 15:05:08 Asia/Jakarta] PHP Warning:  Undefined array key "statusperkawinan" in /home/kecamata4/public_html/panel/penduduktambah.php on line 150
