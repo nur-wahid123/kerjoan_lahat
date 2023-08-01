@@ -51,5 +51,5 @@ function getBulan($bln)
 session_start();
 // $koneksi = new mysqli("localhost", "root", "", "kerjoan_lahat");
 
-// $koneksi = new mysqli("localhost", "kecamata4_kecamata4", "lahatbro123", "kecamata4_lahat");
-$koneksi = new mysqli("localhost", "pilihjur1_admin", "lahatbro123", "pilihjur1_lahat");
+$koneksi = new mysqli("localhost", "kecamata4_kecamata4", "lahatbro123", "kecamata4_lahat");
+// $koneksi = new mysqli("localhost", "pilihjur1_admin", "lahatbro123", "pilihjur1_lahat");
