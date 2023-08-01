@@ -39,7 +39,9 @@ include 'header.php'; ?>
                                         <th>NAMA</th>
                                         <th>WAKTU PENGAJUAN</th>
                                         <th>STATUS</th>
-                                        <th width="50">AKSI</th>
+                                        <?php if ($sesi == 'Admin' || $sesi == 'superadmin' || $sesi == 'Kepala Desa') { ?>
+                                            <th width="50">AKSI</th>
+                                        <?php } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,62 +53,64 @@ include 'header.php'; ?>
                                         $result = $koneksi->query("SELECT * FROM suratktp") or die(mysqli_error($koneksi));
                                     }
                                     while ($data = $result->fetch_array()) {
-                                        ?>
+                                    ?>
                                         <tr>
                                             <td><?= $no; ?></td>
                                             <td><?= $data['nik']; ?></td>
                                             <td><?= $data['nama']; ?></td>
                                             <?php
-                                                $tanggaldanwaktu = new DateTime($data['dibuat']);
-                                                $tanggal = $tanggaldanwaktu->format("Y-m-d");
-                                                $waktu = $tanggaldanwaktu->format("H-i");
-                                                ?>
+                                            $tanggaldanwaktu = new DateTime($data['dibuat']);
+                                            $tanggal = $tanggaldanwaktu->format("Y-m-d");
+                                            $waktu = $tanggaldanwaktu->format("H-i");
+                                            ?>
                                             <td><?= tanggal($tanggal) . ' - Pukul : ' . $waktu ?> W.I.B</td>
                                             <?php
-                                                if ($data['status'] == "Di Setujui") {
-                                                    $warna = "success";
-                                                } elseif ($data['status'] == "Di Tolak") {
-                                                    $warna = "danger";
-                                                } else {
-                                                    $warna = "primary";
-                                                }
-                                                if ($sesi == 'Admin' || $sesi == 'superadmin' or $sesi == 'Kepala Desa') { ?>
+                                            if ($data['status'] == "Di Setujui") {
+                                                $warna = "success";
+                                            } elseif ($data['status'] == "Di Tolak") {
+                                                $warna = "danger";
+                                            } else {
+                                                $warna = "primary";
+                                            }
+                                            if ($sesi == 'Admin' || $sesi == 'superadmin' or $sesi == 'Kepala Desa') { ?>
                                                 <td>
                                                     <a href="suratktpverifikasi.php?id=<?= $data['idsuratktp'] ?>" class="btn btn-sm btn-<?= $warna ?>"><?= $data['status']; ?></i></a>
                                                     <?php
-                                                            if ($data['status'] == "Di Tolak") {
-                                                                echo '- ' . $data['keterangan'];
-                                                            }
-                                                            ?>
+                                                    if ($data['status'] == "Di Tolak") {
+                                                        echo '- ' . $data['keterangan'];
+                                                    }
+                                                    ?>
                                                     <?php
-                                                            if ($data['status'] == "Di Setujui") {
-                                                                ?>
+                                                    if ($data['status'] == "Di Setujui") {
+                                                    ?>
                                                         <a target="_blank" href="suratktpcetak.php?id=<?= $data['idsuratktp'] ?>" class="btn btn-sm btn-primary m-1">Download Surat</a>
                                                     <?php } ?>
                                                 </td>
                                             <?php } elseif ($sesi == 'Penduduk') { ?>
                                                 <td><?php
-                                                            if ($data['status'] == "Di Tolak") {
-                                                                echo $data['status'] . ' - ' . $data['keterangan'];
-                                                            }
-                                                            ?>
+                                                    if ($data['status'] == "Di Tolak") {
+                                                        echo $data['status'] . ' - ' . $data['keterangan'];
+                                                    }
+                                                    ?>
                                                     <?php if ($data['status'] == "Di Setujui") {
-                                                                echo $data['keterangan'] . '<br>';
-                                                                ?>
+                                                        echo $data['keterangan'] . '<br>';
+                                                    ?>
                                                         <a target="_blank" href="suratktpcetak.php?id=<?= $data['idsuratktp'] ?>" class="btn btn-sm btn-primary m-1">Download Surat</a>
                                                     <?php
-                                                            } ?>
+                                                    } ?>
                                                     <?php
-                                                            if ($data['status'] == "Menunggu Persetujuan") {
-                                                                echo $data['status'];
-                                                            }
-                                                            ?>
+                                                    if ($data['status'] == "Menunggu Persetujuan") {
+                                                        echo $data['status'];
+                                                    }
+                                                    ?>
                                                 </td>
                                             <?php } ?>
-                                            <td>
-                                                <a href="suratktpedit.php?id=<?= $data['idsuratktp'] ?>" class="btn btn-sm btn-primary m-1">Edit</a>
-                                                <a href="suratktphapus.php?id=<?= $data['idsuratktp'] ?>" class="btn btn-sm btn-danger m-1" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">Hapus</a>
-                                            </td>
+                                            <?php if ($sesi == 'Admin' || $sesi == 'superadmin' || $sesi == 'Kepala Desa') { ?>
+                                                <td>
+                                                    <a href="suratktpedit.php?id=<?= $data['idsuratktp'] ?>" class="btn btn-sm btn-primary m-1">Edit</a>
+                                                    <a href="suratktphapus.php?id=<?= $data['idsuratktp'] ?>" class="btn btn-sm btn-danger m-1" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">Hapus</a>
+                                                </td>
+                                            <?php } ?>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
