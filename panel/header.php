@@ -219,7 +219,7 @@ if ($sesi == 'Admin') {
                                     <li class="nav-item">
                                         <a href="suratdomisilidaftar.php" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p> Riwayat Pengajuan</p>
+                                            <p> Riwayat Pengajuan Oi</p>
                                         </a>
                                     </li>
                                 </ul>
