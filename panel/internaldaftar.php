@@ -35,7 +35,7 @@ include 'header.php'; ?>
                                         <th>Alamat</th>
                                         <th>Level</th>
                                         <?php
-                                        if ($sesi == 'superadmin') {
+                                        if ($sesi == 'Admin' || $sesi == 'superadmin') {
                                         ?>
                                             <th width="50">Aksi</th>
                                         <?php } ?>
@@ -53,7 +53,7 @@ include 'header.php'; ?>
                                             <td><?= $data['nama']; ?></td>
                                             <td><?= $data['alamat']; ?></td>
                                             <td><?= $data['level']; ?></td>
-                                            <?php if ($sesi == 'superadmin') { ?>
+                                            <?php if ($sesi == 'Admin' || $sesi == 'superadmin') { ?>
                                                 <td>
                                                     <a href="internaledit.php?id=<?= $data['iduser'] ?>" class="btn btn-sm btn-primary m-1"><i class="fa fa-edit"></i></a>
                                                     <a href="internalhapus.php?id=<?= $data['iduser'] ?>" class="btn btn-sm btn-danger m-1" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')"><i class="fa fa-trash"></i></a>

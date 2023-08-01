@@ -34,7 +34,7 @@ include 'header.php'; ?>
                                         <th>Judul</th>
                                         <th>Kategori</th>
                                         <th>Foto</th>
-                                        <?php if ($sesi == 'Admin') { ?>
+                                        <?php if ($sesi == 'Admin' || $sesi == 'superadmin') { ?>
                                             <th>Aksi</th>
                                         <?php } ?>
                                     </tr>
@@ -52,7 +52,7 @@ include 'header.php'; ?>
                                             <td><?= $data['kategori'] ?></td>
                                             </td>
                                             <td><img src="../foto/<?= $data['foto'] ?>" width="150px" style="border-radius:10px"></td>
-                                            <?php if ($sesi == 'Admin') { ?>
+                                            <?php if ($sesi == 'Admin' || $sesi == 'superadmin') { ?>
                                                 <td>
                                                     <a class="btn btn-primary" href="beritaedit.php?id=<?= $data['id'] ?>">Edit</a>
                                                     <a class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')" href="beritahapus.php?id=<?= $data['id'] ?>">Hapus</a>

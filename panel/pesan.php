@@ -34,7 +34,7 @@ include 'header.php'; ?>
                                         <th>Email</th>
                                         <th>No. HP</th>
                                         <th>Pesan / Saran</th>
-                                        <?php if ($sesi == 'Admin') { ?>
+                                        <?php if ($sesi == 'Admin' || $sesi == 'superadmin') { ?>
                                             <th>Aksi</th>
                                         <?php } ?>
                                     </tr>
@@ -51,7 +51,7 @@ include 'header.php'; ?>
                                             <td><?= $data['email'] ?></td>
                                             <td><?= $data['nohp'] ?></td>
                                             <td><?= $data['pesan'] ?></td>
-                                            <?php if ($sesi == 'Admin') { ?>
+                                            <?php if ($sesi == 'Admin' || $sesi == 'superadmin') { ?>
                                                 <td>
                                                     <a class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')" href="pesanhapus.php?id=<?= $data['idpesan'] ?>">Hapus</a>
                                                 </td>

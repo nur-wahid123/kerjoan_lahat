@@ -34,7 +34,7 @@ include 'header.php'; ?>
                                         <th>Nama</th>
                                         <th>Alamat</th>
                                         <th>Status</th>
-                                        <?php if ($sesi == 'Admin') { ?>
+                                        <?php if ($sesi == 'Admin' || $sesi == 'superadmin') { ?>
                                             <th width="50">Aksi</th>
                                         <?php } ?>
                                     </tr>
@@ -51,7 +51,7 @@ include 'header.php'; ?>
                                             <td><?= $data['nama']; ?></td>
                                             <td><?= $data['alamat']; ?></td>
                                             <td><?= $data['statusaktif']; ?></td>
-                                            <?php if ($sesi == 'Admin') { ?>
+                                            <?php if ($sesi == 'Admin' || $sesi == 'superadmin') { ?>
                                                 <td>
                                                     <a href="pendudukedit.php?id=<?= $data['iduser'] ?>" class="btn btn-sm btn-primary m-1"><i class="fa fa-edit"></i></a>
                                                     <a href="pendudukhapus.php?id=<?= $data['iduser'] ?>" class="btn btn-sm btn-danger m-1" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')"><i class="fa fa-trash"></i></a>

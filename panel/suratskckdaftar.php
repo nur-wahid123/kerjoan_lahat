@@ -70,7 +70,7 @@ include 'header.php'; ?>
                                                 } else {
                                                     $warna = "primary";
                                                 }
-                                                if ($sesi == 'Admin' or $sesi == 'Kepala Desa') { ?>
+                                                if ($sesi == 'Admin' || $sesi == 'superadmin' or $sesi == 'Kepala Desa') { ?>
                                                 <td>
                                                     <a href="suratskckverifikasi.php?id=<?= $data['idsuratskck'] ?>" class="btn btn-sm btn-<?= $warna ?>"><?= $data['status']; ?></i></a>
                                                     <?php
